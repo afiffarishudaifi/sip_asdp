@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2024 at 02:07 AM
+-- Generation Time: Dec 29, 2024 at 11:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -29,12 +29,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `form_data` (
   `no_id` int(11) NOT NULL,
+  `id_kapal` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `jam_tambat` time NOT NULL,
   `jam_tolak` time NOT NULL,
   `lama_tambat` int(11) NOT NULL,
   `keterangan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `form_data`
+--
+
+INSERT INTO `form_data` (`no_id`, `id_kapal`, `tanggal`, `jam_tambat`, `jam_tolak`, `lama_tambat`, `keterangan`) VALUES
+(1, 3, '2024-12-30', '11:25:00', '11:25:00', 35, 'Jasa Sandar Oke                                '),
+(2, 1, '2024-12-06', '11:26:00', '11:26:00', 20, 'Jasa Sandar');
 
 -- --------------------------------------------------------
 
@@ -73,7 +82,8 @@ INSERT INTO `kapal` (`id`, `namaprs`, `namakp`) VALUES
 (18, 'PT Jembatan Nusantara', 'KMP Selat Madura II'),
 (19, 'PT Jembatan Nusantara', 'KMP Srikandi'),
 (20, 'PT Tranship Indonesia', 'KMP Tranship I'),
-(21, 'PT Mitra Bahari', 'KMP Manggani');
+(21, 'PT Mitra Bahari', 'KMP Manggani'),
+(22, 'PT Afif Jaya Group', 'KMP Jaya Sentosa');
 
 -- --------------------------------------------------------
 
@@ -86,7 +96,7 @@ CREATE TABLE `tbl_user` (
   `nama` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(250) NOT NULL,
-  `status` tinytext NOT NULL
+  `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -94,26 +104,8 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `nama`, `username`, `password`, `status`) VALUES
-(1, 'admin', 'admin123@gmail.com', 'EKdxEFQe/eTPRW75kVv9UA9nqYH0CJlQkmmZBZjiLPlW+cPiXDrpv2bWMIbC8TvGvT0/J6dUE1Xf688kb0fA8Jo9jsz9ww4DicelhupQu6om1yRTOFM=', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
-(1, 'root', '@root123');
+(1, 'admin', 'admin123@gmail.com', 'EKdxEFQe/eTPRW75kVv9UA9nqYH0CJlQkmmZBZjiLPlW+cPiXDrpv2bWMIbC8TvGvT0/J6dUE1Xf688kb0fA8Jo9jsz9ww4DicelhupQu6om1yRTOFM=', 1),
+(3, 'Karyawan', 'karyawan1@gmail.com', 'ACXwGTX5ltzBsbmG8pXI5CsNBFKqvoUafihVBkPNehESpNm487gq9JcbR5k08Dc/K7feHjJmZ9KzfUWEongLWIyTMZNrDxl3Xv1YkKYUR4Wc1B9/6luDGfQ=', 0);
 
 --
 -- Indexes for dumped tables
@@ -123,7 +115,8 @@ INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
 -- Indexes for table `form_data`
 --
 ALTER TABLE `form_data`
-  ADD PRIMARY KEY (`no_id`);
+  ADD PRIMARY KEY (`no_id`),
+  ADD KEY `id_kapal` (`id_kapal`);
 
 --
 -- Indexes for table `kapal`
@@ -138,12 +131,6 @@ ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -151,25 +138,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `form_data`
 --
 ALTER TABLE `form_data`
-  MODIFY `no_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `no_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kapal`
 --
 ALTER TABLE `kapal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
