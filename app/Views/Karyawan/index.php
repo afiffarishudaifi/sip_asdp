@@ -73,18 +73,18 @@
                 <div class="container-fluid">
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
-                        <div class="col-lg-3 col-6">
+                    <div class="col-lg-3 col-6">
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3><?= $kamar_kosong ?></h3>
+                                    <h3><?= $jumlah_kapal ?></h3>
 
                                     <p>Jumlah Kapal</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-ship"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">Lihat data <i
+                                <a href="<?= base_url('Admin/Kapal') ?>" class="small-box-footer">Lihat data <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -93,14 +93,14 @@
                             <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3><?= $kamar_terisi ?></h3>
+                                    <h3><?= $jumlah_trip ?></h3>
 
                                     <p>Jumlah Trip</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-map"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">Lihat data <i
+                                <a href="<?= base_url('Admin/JasaSandar') ?>" class="small-box-footer">Lihat data <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -109,14 +109,14 @@
                             <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3><?= $pegawai ?></h3>
+                                    <h3><?= $jumlah_user ?></h3>
 
                                     <p>Jumlah Pengguna</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">Lihat data <i
+                                <a href="<?= base_url('Admin/User') ?>" class="small-box-footer">Lihat data <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -125,14 +125,14 @@
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3><?= $dokter ?></h3>
+                                    <h3><?= $jumlah_admin ?></h3>
 
                                     <p>Jumlah Admin</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">Lihat data <i
+                                <a href="<?= base_url('Admin/User') ?>" class="small-box-footer">Lihat data <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>

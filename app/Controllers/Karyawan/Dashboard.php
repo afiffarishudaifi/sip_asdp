@@ -16,14 +16,18 @@ class Dashboard extends BaseController
             return redirect()->to('Login');
         }
 
-        // $model = new Model_dashboard_admin();
+        $model = new Model_dashboard_admin();
+        $jumlah_kapal = $model->jumlah_kapal()->getResultArray();
+        $jumlah_trip = $model->jumlah_trip()->getResultArray();
+        $jumlah_user = $model->jumlah_user()->getResultArray();
+        $jumlah_admin = $model->jumlah_admin()->getResultArray();
 
         $data = [
             'judul' => 'Tabel Admin',
-            'kamar_kosong' => 20,
-            'kamar_terisi' => 20,
-            'dokter' => 20,
-            'pegawai' => 20
+            'jumlah_kapal' => count($jumlah_kapal),
+            'jumlah_trip' => count($jumlah_trip),
+            'jumlah_user' => count($jumlah_user),
+            'jumlah_admin' => count($jumlah_admin)
         ];
         return view('Karyawan/index', $data);
     }
