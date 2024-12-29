@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>E-Klinik Maryam</title>
+    <title>SIP ASDP</title>
 
     <link rel="shortcut icon" href="<?= base_url() ?>/docs/adminlte/dist/img/AdminLTELogo.png">
     <!-- Google Font: Source Sans Pro -->
@@ -79,12 +79,12 @@
                                 <div class="inner">
                                     <h3><?= $kamar_kosong ?></h3>
 
-                                    <p>Kamar Kosong</p>
+                                    <p>Jumlah Kapal</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fas fa-door-open"></i>
+                                    <i class="fas fa-ship"></i>
                                 </div>
-                                <a href="<?= base_url('Karyawan/Kamar'); ?>" class="small-box-footer">Lihat data <i
+                                <a href="#" class="small-box-footer">Lihat data <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -95,12 +95,12 @@
                                 <div class="inner">
                                     <h3><?= $kamar_terisi ?></h3>
 
-                                    <p>Kamar Terisi</p>
+                                    <p>Jumlah Trip</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fas fa-door-closed"></i>
+                                    <i class="fas fa-map"></i>
                                 </div>
-                                <a href="<?= base_url('Karyawan/Kamar'); ?>" class="small-box-footer">Lihat data <i
+                                <a href="#" class="small-box-footer">Lihat data <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -109,14 +109,14 @@
                             <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3><?= $obat ?></h3>
+                                    <h3><?= $pegawai ?></h3>
 
-                                    <p>Jumlah Obat</p>
+                                    <p>Jumlah Pengguna</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fas fa-pills"></i>
+                                    <i class="ion ion-person-add"></i>
                                 </div>
-                                <a href="<?= base_url('Karyawan/Obat'); ?>" class="small-box-footer">Lihat data <i
+                                <a href="#" class="small-box-footer">Lihat data <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
@@ -125,14 +125,14 @@
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3><?= $pasien ?></h3>
+                                    <h3><?= $dokter ?></h3>
 
-                                    <p>Jumlah Pasien</p>
+                                    <p>Jumlah Admin</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person"></i>
                                 </div>
-                                <a href="<?= base_url('Karyawan/Pasien'); ?>" class="small-box-footer">Lihat data <i
+                                <a href="#" class="small-box-footer">Lihat data <i
                                         class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>

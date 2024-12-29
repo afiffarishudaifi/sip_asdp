@@ -7,29 +7,24 @@ use App\Models\Model_dashboard_admin;
 
 class Dashboard extends BaseController
 {
+
     public function index()
     {
         $session = session();
 
         if (!$session->get('nama_login') || $session->get('status_login') != 'Karyawan') {
-            return redirect()->to('Login/loginPegawai');
+            return redirect()->to('Login');
         }
 
-        $model = new Model_dashboard_admin();
-        
-        $kamar_kosong = $model->kamar_kosong()->getResultArray();
-        $kamar_terisi = $model->kamar_terisi()->getResultArray();
-        $obat = $model->obat()->getResultArray();
-        $pasien = $model->pasien()->getResultArray();
+        // $model = new Model_dashboard_admin();
 
         $data = [
-            'judul' => 'Tabel Karyawan',
-            'kamar_kosong' => count($kamar_kosong),
-            'kamar_terisi' => count($kamar_terisi),
-            'obat' => count($obat),
-            'pasien' => count($pasien)
+            'judul' => 'Tabel Admin',
+            'kamar_kosong' => 20,
+            'kamar_terisi' => 20,
+            'dokter' => 20,
+            'pegawai' => 20
         ];
         return view('Karyawan/index', $data);
     }
-
 }

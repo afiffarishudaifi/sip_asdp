@@ -50,15 +50,6 @@
           <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-sign-in-alt"></i>    Sign In</button>
         </div>
       </form>
-      
-      <!-- /.social-auth-links -->
-
-      <div class="social-auth-links text-center">
-        <a href="<?= base_url('Registrasi') ?>" class="btn btn-block btn-info">
-          <i class="fa fa-user-plus mr-2"></i>
-          Registrasi Pasien
-        </a>
-      </div>
 
       <!-- <p class="mb-1">
         Lupa password ? <a href="<?= base_url('Login/resetPasien') ?>"> klik </a>untuk resert password

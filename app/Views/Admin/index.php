@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>E-Klinik Maryam</title>
+    <title>SIP ASDP</title>
 
     <link rel="shortcut icon" href="<?= base_url() ?>/docs/adminlte/dist/img/AdminLTELogo.png">
     <!-- Google Font: Source Sans Pro -->
@@ -79,10 +79,10 @@
                                 <div class="inner">
                                     <h3><?= $kamar_kosong ?></h3>
 
-                                    <p>Kamar Kosong</p>
+                                    <p>Jumlah Kapal</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fas fa-door-open"></i>
+                                    <i class="fas fa-ship"></i>
                                 </div>
                                 <a href="#" class="small-box-footer">Lihat data <i
                                         class="fas fa-arrow-circle-right"></i></a>
@@ -95,10 +95,10 @@
                                 <div class="inner">
                                     <h3><?= $kamar_terisi ?></h3>
 
-                                    <p>Kamar Terisi</p>
+                                    <p>Jumlah Trip</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fas fa-door-closed"></i>
+                                    <i class="fas fa-map"></i>
                                 </div>
                                 <a href="#" class="small-box-footer">Lihat data <i
                                         class="fas fa-arrow-circle-right"></i></a>
@@ -111,7 +111,7 @@
                                 <div class="inner">
                                     <h3><?= $pegawai ?></h3>
 
-                                    <p>Jumlah Pegawai</p>
+                                    <p>Jumlah Pengguna</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>
@@ -127,7 +127,7 @@
                                 <div class="inner">
                                     <h3><?= $dokter ?></h3>
 
-                                    <p>Jumlah Dokter</p>
+                                    <p>Jumlah Admin</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person"></i>

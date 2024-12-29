@@ -15,7 +15,7 @@ class Model_login extends Model
         $db      = \Config\Database::connect();
         $builder = $db->table('tbl_user');
         $query = $builder->where('username', $username);
-        $query = $builder->where('status', 1);
+        // $query = $builder->where('status', 1);
         return $query->get();
     }
 

@@ -13,7 +13,7 @@ class Dashboard extends BaseController
         $session = session();
 
         if (!$session->get('nama_login') || $session->get('status_login') != 'Admin') {
-            return redirect()->to('Login/loginAdmin');
+            return redirect()->to('Login');
         }
 
         // $model = new Model_dashboard_admin();

@@ -13,7 +13,7 @@ class Pengaturan extends BaseController
         $session = session();
 
         if (!$session->get('nama_login') || $session->get('status_login') != 'Karyawan') {
-            return redirect()->to('Login/loginPegawai');
+            return redirect()->to('Login');
         }
 
         $this->Model_karyawan = new Model_karyawan();
@@ -25,7 +25,7 @@ class Pengaturan extends BaseController
     {
         $session = session();
         if (!$session->get('nama_login') || $session->get('status_login') != 'Karyawan') {
-            return redirect()->to('Login/loginPegawai');
+            return redirect()->to('Login');
         }
         
         $model = new Model_karyawan();

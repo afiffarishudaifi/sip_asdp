@@ -1,8 +1,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>E-Klinik Maryam</title>
-    
+    <title>SIP ASDP</title>
+
     <link rel="shortcut icon" href="<?= base_url() ?>/docs/adminlte/dist/img/AdminLTELogo.png">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"

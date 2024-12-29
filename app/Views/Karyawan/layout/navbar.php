@@ -1,6 +1,3 @@
-<?php
-$session = session();
-?>
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
@@ -18,7 +15,6 @@ $session = session();
           <!-- Messages Dropdown Menu -->
           <li class="nav-item dropdown">
           </li>
-          <!-- Notifications Dropdown Menu -->
           <li class="nav-item">
               <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                   <i class="fas fa-expand-arrows-alt"></i>
@@ -26,19 +22,14 @@ $session = session();
           </li>
           <li class="nav-item">
               <a class="nav-link" data-toggle="dropdown" href="#">
-                <?php if($session->get('foto') == '' || $session->get('foto') == null) { ?>
                   <img src="<?= base_url() ?>/docs/adminlte/dist/img/avatar.png"
                       style="width: 30px; border-radius: 50%;" alt="avatar">
-                <?php } else { ?>
-                  <img src="<?= base_url() ?>/<?= $session->get('foto') ?>"
-                      style="width: 30px; border-radius: 50%;" alt="avatar">
-                <?php } ?>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                   <div class="dropdown-divider"></div>
-                  <a href="<?= base_url("Karyawan/Pengaturan") ?>" class="dropdown-item">
+                  <!-- <a href="#" class="dropdown-item">
                       <i class="fa fa-cogs mr-2"></i> Pengaturan Akun
-                  </a>
+                  </a> -->
                   <div class="dropdown-divider"></div>
                   <a href="#" data-toggle="modal" data-target="#logoutModal" class="dropdown-item">
                       <i class="fa fa-arrow-right mr-2"></i> Keluar

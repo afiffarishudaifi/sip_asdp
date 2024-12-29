@@ -91,8 +91,7 @@ class Login extends BaseController
         $password = $this->request->getPost('password');
 
         $data = $model->loginSistem($username)->getRowArray();
-
-        if ($data) {
+        if ($data['status'] == 1) {
             $pass = $data['password'];
             $status = 'Admin';
             $verify_pass =  $encrypter->decrypt(base64_decode($pass));
@@ -100,11 +99,30 @@ class Login extends BaseController
                 $ses_data = [
                     'user_id' => $data['id'],
                     'nama_login' => $data['nama'],
+                    'status_login' => 'Admin',
                     'logged_in' => TRUE,
                     'is_admin' => TRUE
                 ];
                 $session->set($ses_data);
                 return redirect()->to('/Admin/Dashboard');
+            } else {
+                $session->setFlashdata('msg', 'Password Tidak Sesuai');
+                return redirect()->to('/Login');
+            }
+        } elseif ($data['status'] == 0) {
+            $pass = $data['password'];
+            $status = 'Karyawan';
+            $verify_pass =  $encrypter->decrypt(base64_decode($pass));
+            if ($verify_pass == $password) {
+                $ses_data = [
+                    'user_id' => $data['id'],
+                    'nama_login' => $data['nama'],
+                    'status_login' => 'Karyawan',
+                    'logged_in' => TRUE,
+                    'is_admin' => TRUE
+                ];
+                $session->set($ses_data);
+                return redirect()->to('/Karyawan/Dashboard');
             } else {
                 $session->setFlashdata('msg', 'Password Tidak Sesuai');
                 return redirect()->to('/Login');
