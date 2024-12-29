@@ -76,8 +76,8 @@ class LaporanJasaSandar extends BaseController
         $kapal = $this->request->getPost('input_kapal');
 
         if ($tanggal) $tgl = explode(' - ', $tanggal);
-        if ($tanggal) { $param['tanggal'] = date("Y-m-d", strtotime($tgl[0])); } else { $param['tanggal'] = date("Y-m-d"); };
-        if ($tanggal) { $param['tanggal'] = date("Y-m-d", strtotime($tgl[1])); } else { $param['tanggal'] = date("Y-m-d"); };
+        if ($tanggal) { $param['tanggal1'] = date("Y-m-d", strtotime($tgl[0])); } else { $param['tanggal1'] = date("Y-m-d"); };
+        if ($tanggal) { $param['tanggal2'] = date("Y-m-d", strtotime($tgl[1])); } else { $param['tanggal2'] = date("Y-m-d"); };
 
         if ($kapal != 'null') {
             $param['id_kapal'] = $kapal;
@@ -92,7 +92,7 @@ class LaporanJasaSandar extends BaseController
             'judul' => 'Laporan Jasa Sandar',
             'laporan' => $laporan
         ];
-        return view('Admin/cetakPendaftaranJalan', $data);
+        return view('Karyawan/cetakJasaSandar', $data);
     }
 
     public function data_kapal()
