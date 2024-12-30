@@ -39,7 +39,8 @@ class Kapal extends BaseController
 
         $data = array(
             'namaprs'     => $this->request->getPost('input_pelayaran'),
-            'namakp'     => $this->request->getPost('input_nama')
+            'namakp'     => $this->request->getPost('input_nama'),
+            'grt'     => $this->request->getPost('input_grt')
         );
         $model = new Model_kapal();
         $model->add_data($data);
@@ -56,7 +57,8 @@ class Kapal extends BaseController
         $id = $this->request->getPost('id');
         $data = array(
             'namaprs'     => $this->request->getPost('edit_pelayaran'),
-            'namakp'     => $this->request->getPost('edit_nama')
+            'namakp'     => $this->request->getPost('edit_nama'),
+            'grt'     => $this->request->getPost('edit_grt')
         );
 
         $model->update_data($data, $id);

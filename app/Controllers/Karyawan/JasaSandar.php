@@ -32,7 +32,7 @@ class JasaSandar extends BaseController
             'judul' => 'Tabel Jasa Sandar',
             'data' => $data
         ];
-        return view('Admin/viewJasaSandar', $data);
+        return view('Karyawan/viewJasaSandar', $data);
     }
 
     public function add_jasasandar()
@@ -51,7 +51,7 @@ class JasaSandar extends BaseController
         $model = new Model_jasasandar();
         $model->add_data($data);
         $session->setFlashdata('sukses', 'Data sudah berhasil ditambah');
-        return redirect()->to(base_url('Admin/JasaSandar'));
+        return redirect()->to(base_url('Karyawan/JasaSandar'));
     }
 
     public function update_jasasandar()
@@ -73,7 +73,7 @@ class JasaSandar extends BaseController
         $model->update_data($data, $id);
 
         $session->setFlashdata('sukses', 'Data sudah berhasil diubah');
-        return redirect()->to(base_url('Admin/JasaSandar'));
+        return redirect()->to(base_url('Karyawan/JasaSandar'));
     }
 
     public function delete_jasasandar()
@@ -83,7 +83,7 @@ class JasaSandar extends BaseController
         $id = $this->request->getPost('id');
         $model->delete_data($id);
         session()->setFlashdata('sukses', 'Data sudah berhasil dihapus');
-        return redirect()->to('/Admin/JasaSandar');
+        return redirect()->to('/Karyawan/JasaSandar');
     }
 
     public function data_edit($no_id)

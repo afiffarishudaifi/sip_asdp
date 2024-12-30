@@ -159,7 +159,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Ubah Data Rawat Jalan </h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Ubah Data Jasa Sandar </h5>
                             <button type="reset" class="close" data-dismiss="modal" id="batal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -348,8 +348,8 @@
                 function(json) {
                     $('#no_id').val(json.no_id);
                     $('#edit_tanggal').val(json.tanggal);
-                    $('#edit_tambat').val(json.waktu_tambat);
-                    $('#edit_tolak').val(json.waktu_tolak);
+                    $('#edit_tambat').val(json.jam_tambat);
+                    $('#edit_tolak').val(json.jam_tolak);
                     $('#edit_lama').val(json.lama_tambat);
                     $('#edit_keterangan').val(json.keterangan);
 

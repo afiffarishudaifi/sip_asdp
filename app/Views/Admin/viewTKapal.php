@@ -117,6 +117,12 @@
                                 <span class="text-danger" id="error_nama"></span>
                             </div>
 
+                            <div class="form-group">
+                                <label>GRT Kapal</label>
+                                <input type="number" class="form-control" id="input_grt" name="input_grt"
+                                    data-parsley-required="true" placeholder="Masukkan GRT Kapal" autofocus="on">
+                            </div>
+
                         </div>
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-secondary" id="batal_add"
@@ -157,6 +163,12 @@
                                 <input type="text" class="form-control" id="edit_nama" name="edit_nama"
                                     data-parsley-required="true" placeholder="Masukkan Nama Kapal" autofocus="on">
                                 <span class="text-danger" id="error_edit_nama"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>GRT Kapal</label>
+                                <input type="number" class="form-control" id="edit_grt" name="edit_grt"
+                                    data-parsley-required="true" placeholder="Masukkan GRT Kapal" autofocus="on">
                             </div>
 
                         </div>
@@ -257,18 +269,21 @@
                 $('#form_edit')[0].reset();
                 $("#input_pelayaran").val('');
                 $("#input_nama").val('');
+                $("#input_grt").val('');
             });
 
             $('#batal_add').on('click', function() {
                 $('#form_add')[0].reset();
                 $("#input_pelayaran").val('');
                 $("#input_nama").val('');
+                $("#input_grt").val('');
             });
 
             $('#batal_up').on('click', function() {
                 $('#form_edit')[0].reset();
                 $("#edit_pelayaran").val('');
                 $("#edit_nama").val('');
+                $("#edit_grt").val('');
             });
         })
 
@@ -278,6 +293,7 @@
                     $('#id').val(json.id);
                     $('#edit_pelayaran').val(json.namaprs);
                     $('#edit_nama').val(json.namakp);
+                    $('#edit_grt').val(json.grt);
                 });
         }
     </script>
