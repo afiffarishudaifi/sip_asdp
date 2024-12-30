@@ -99,6 +99,8 @@ class Kapal extends BaseController
         foreach ($respon as $value) :
             $isi['id'] = $value['id'];
             $isi['namakp'] = $value['namakp'];
+            $isi['namaprs'] = $value['namaprs'];
+            $isi['grt'] = $value['grt'];
         endforeach;
         echo json_encode($isi);
     }

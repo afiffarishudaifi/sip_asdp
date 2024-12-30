@@ -13,7 +13,7 @@ class Model_jasasandar extends Model
     {
         $db      = \Config\Database::connect();
         $builder = $db->table('form_data');
-        $builder->select('no_id, id_kapal, namakp, tanggal, jam_tambat, lama_tambat, jam_tolak, keterangan');
+        $builder->select('no_id, id_kapal, namakp, tanggal, jam_tambat, biaya, grt, lama_tambat, jam_tolak, keterangan');
         $builder->join('kapal','form_data.id_kapal = kapal.id');
         return $builder->get();
     }
@@ -29,9 +29,18 @@ class Model_jasasandar extends Model
         $db      = \Config\Database::connect();
         $builder = $db->table('form_data');
         $builder->select("form_data.no_id, form_data.id_kapal, namakp, tanggal,
-             jam_tambat, jam_tolak, lama_tambat, keterangan");
+             jam_tambat, jam_tolak, lama_tambat, keterangan, biaya, grt");
         $builder->join('kapal','form_data.id_kapal = kapal.id');
         $builder->where('no_id', $id);
+        return $builder->get();
+    }    
+
+    public function cek_grt($id)
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table('kapal');
+        $builder->select("grt");
+        $builder->where('id', $id);
         return $builder->get();
     }
 

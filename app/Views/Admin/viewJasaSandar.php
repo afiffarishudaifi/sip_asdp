@@ -53,6 +53,7 @@
                                                 <th style="text-align: center;">Jam Tambat</th>
                                                 <th style="text-align: center;">Jam Tolak</th>
                                                 <th style="text-align: center;">Lama Tambat</th>
+                                                <th style="text-align: center;">Biaya Sandar</th>
                                                 <th style="text-align: center;">Keterangan</th>
                                                 <th style="text-align: center;">Aksi</th>
                                             </tr>
@@ -67,6 +68,7 @@
                                                 <td><?= $item['jam_tambat']; ?></td>
                                                 <td><?= $item['jam_tolak']; ?></td>
                                                 <td><?= $item['lama_tambat']; ?></td>
+                                                <td><?= $item['biaya']; ?></td>
                                                 <td><?= $item['keterangan']; ?></td>
                                                 <td>
                                                         <center>
@@ -110,7 +112,12 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Kapal</label>
-                                <select class="form-control select2" id="input_kapal" name="input_kapal">
+                                <select class="form-control select2" id="input_kapal" name="input_kapal" onchange="cekgrt(this.value)">
+                                </select>   
+                            </div>
+                            <div class="form-group">
+                                <label>GRT Kapal</label>
+                                <input type="text" class="form-control" id="input_grt" name="input_grt" data-parsley-required="true" autocomplete="off" readonly/>
                                 </select>   
                             </div>
                             <div class="form-group">
@@ -130,7 +137,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Lama Sandar</label>
-                                <input type="number" class="form-control" id="input_lama" name="input_lama" data-parsley-required="true" autocomplete="off" />
+                                <input type="number" class="form-control" id="input_lama" name="input_lama" data-parsley-required="true" autocomplete="off" onkeyup="hitung(this.value)"/>
+                                </select>   
+                            </div>
+                            <div class="form-group">
+                                <label>Biaya Sandar</label>
+                                <input type="number" class="form-control" id="input_biaya" name="input_biaya" data-parsley-required="true" autocomplete="off" readonly/>
                                 </select>   
                             </div>
                             <div class="form-group">
@@ -169,7 +181,12 @@
 
                             <div class="form-group">
                                 <label>Kapal</label>
-                                <select class="form-control select2" id="edit_kapal" name="edit_kapal">
+                                <select class="form-control select2" id="edit_kapal" name="edit_kapal" onchange="cekgrt_edit(this.value)">
+                                </select>   
+                            </div>
+                            <div class="form-group">
+                                <label>GRT Kapal</label>
+                                <input type="text" class="form-control" id="edit_grt" name="edit_grt" data-parsley-required="true" autocomplete="off" readonly/>
                                 </select>   
                             </div>
                             <div class="form-group">
@@ -189,7 +206,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Lama Sandar</label>
-                                <input type="number" class="form-control" id="edit_lama" name="edit_lama" data-parsley-required="true" autocomplete="off" />
+                                <input type="number" class="form-control" id="edit_lama" name="edit_lama" data-parsley-required="true" autocomplete="off" onkeyup="hitung_edit(this.value)"/>
+                                </select>   
+                            </div>
+                            <div class="form-group">
+                                <label>Biaya Sandar</label>
+                                <input type="number" class="form-control" id="edit_biaya" name="edit_biaya" data-parsley-required="true" autocomplete="off" readonly/>
                                 </select>   
                             </div>
                             <div class="form-group">
@@ -263,8 +285,35 @@
                 toastr.error('<?= $session->getFlashdata('gagal'); ?>')
             }
         });
+            
+        function cekgrt(status) {
+            $.getJSON('<?php echo base_url('Admin/JasaSandar/cek_grt'); ?>' + '/' + status, {},
+                function(json) {
+                    $('#input_grt').val(json.grt);
+                });
+                hitung_($('#input_lama').val());
+        };
+            
+        function cekgrt_edit(status) {
+            $.getJSON('<?php echo base_url('Admin/JasaSandar/cek_grt'); ?>' + '/' + status, {},
+                function(json) {
+                    $('#edit_grt').val(json.grt);
+                });
+            hitung_edit($('#edit_lama').val());
+        };
+            
+        function hitung(nilai) {
+            $hasil = nilai * $('#input_grt').val();
+            $('#input_biaya').val($hasil);
+        };
+            
+        function hitung_edit(nilai) {
+            $hasil = nilai * $('#edit_grt').val();
+            $('#edit_biaya').val($hasil);
+        };
 
         $(function() {
+
             $('.select2').select2()
 
             $("#input_kapal").select2({
@@ -320,6 +369,8 @@
                 $("#input_tolak").val('');
                 $("#input_lama").val('');
                 $("#input_keterangan").val('');
+                $("#input_grt").val('');
+                $("#input_biaya").val('');
             });
 
             $('#batal_add').on('click', function() {
@@ -330,6 +381,8 @@
                 $("#input_tolak").val('');
                 $("#input_lama").val('');
                 $("#input_keterangan").val('');
+                $("#input_grt").val('');
+                $("#input_biaya").val('');
             });
 
             $('#batal_up').on('click', function() {
@@ -340,6 +393,7 @@
                 $("#edit_tolak").val('');
                 $("#edit_lama").val('');
                 $("#edit_keterangan").val('');
+                $("#edit_biaya").val('');
             });
         })
 
@@ -351,7 +405,9 @@
                     $('#edit_tambat').val(json.jam_tambat);
                     $('#edit_tolak').val(json.jam_tolak);
                     $('#edit_lama').val(json.lama_tambat);
+                    $('#edit_biaya').val(json.biaya);
                     $('#edit_keterangan').val(json.keterangan);
+                    $('#edit_grt').val(json.grt);
 
                     $('#edit_kapal').append('<option selected value="' + json.id + '">' + json.namakp +
                         '</option>');

@@ -114,9 +114,7 @@
     <script>
         function ganti(status) {
             $('.table').DataTable().ajax.url('<?= base_url() ?>/Admin/LaporanJasaSandar/data/' + $('#tanggal').val() + '/' + status).load();
-        };
-
-        
+        };        
 
         $('.select2').select2()
 

@@ -51,6 +51,7 @@
                                                 <th style="text-align: center;">No</th>
                                                 <th style="text-align: center;">Nama Pelayaran</th>
                                                 <th style="text-align: center;">Nama Kapal</th>
+                                                <th style="text-align: center;">GRT Kapal</th>
                                                 <th style="text-align: center;">Aksi</th>
                                             </tr>
                                         </thead>
@@ -63,6 +64,7 @@
                                                     <td width="1%"><?= $no++; ?></td>
                                                     <td><?= $item['namaprs']; ?></td>
                                                     <td><?= $item['namakp']; ?></td>
+                                                    <td><?= $item['grt']; ?></td>
                                                     <td>
                                                         <center>
                                                             <a href="" title="Edit" data-toggle="modal" data-toggle="modal" data-target="#updateModal" name="btn-edit" onclick="detail_edit(<?= $item['id']; ?>)" class="btn btn-sm btn-edit btn-warning"><i class="fa fa-edit"></i></a>
@@ -153,7 +155,7 @@
                             <input type="hidden" name="id" id="id">
 
                             <div class="form-group">
-                                <label>Nama Kapal</label>
+                                <label>Nama Pelayaran</label>
                                 <input type="text" class="form-control" id="edit_pelayaran" name="edit_pelayaran"
                                     data-parsley-required="true" placeholder="Masukkan Nama Pelayaran" autofocus="on">
                             </div>

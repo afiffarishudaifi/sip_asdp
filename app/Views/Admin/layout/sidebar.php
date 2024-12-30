@@ -59,7 +59,7 @@ $session = session();
                             if ($uri->getSegment(2) == 'Kapal') {
                                 echo "active";
                             } ?>">
-                                <i class="fa fa-medkit nav-icon"></i>
+                                <i class="fa fa-ship nav-icon"></i>
                                 <p>Kapal</p>
                             </a>
                         </li>

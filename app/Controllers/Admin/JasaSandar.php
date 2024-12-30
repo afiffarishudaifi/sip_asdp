@@ -45,6 +45,7 @@ class JasaSandar extends BaseController
             'jam_tambat'     => $this->request->getPost('input_tambat'),
             'jam_tolak'     => $this->request->getPost('input_tolak'),
             'lama_tambat'     => $this->request->getPost('input_lama'),
+            'biaya'     => $this->request->getPost('input_biaya'),
             'keterangan'     => $this->request->getPost('input_keterangan')
         );
 
@@ -68,6 +69,7 @@ class JasaSandar extends BaseController
             'jam_tambat'     => $this->request->getPost('edit_tambat'),
             'jam_tolak'     => $this->request->getPost('edit_tolak'),
             'lama_tambat'     => $this->request->getPost('edit_lama'),
+            'biaya'     => $this->request->getPost('edit_biaya'),
             'keterangan'     => $this->request->getPost('edit_keterangan')
         );
         $model->update_data($data, $id);
@@ -100,7 +102,23 @@ class JasaSandar extends BaseController
             $isi['jam_tambat'] = $value['jam_tambat'];
             $isi['jam_tolak'] = $value['jam_tolak'];
             $isi['lama_tambat'] = $value['lama_tambat'];
+            $isi['grt'] = $value['grt'];
+            $isi['biaya'] = $value['biaya'];
             $isi['keterangan'] = $value['keterangan'];
+        endforeach;
+        echo json_encode($isi);
+    }
+
+    
+
+    public function cek_grt($id)
+    {
+        $model = new Model_jasasandar();
+        $datainap = $model->cek_grt($id)->getResultArray();
+        $respon = json_decode(json_encode($datainap), true);
+        $data['results'] = array();
+        foreach ($respon as $value) :
+            $isi['grt'] = $value['grt'];
         endforeach;
         echo json_encode($isi);
     }

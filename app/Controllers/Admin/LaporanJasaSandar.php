@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\Model_laporanjasasandar;
+use App\Models\Model_kapal;
 use CodeIgniter\Model;
 
 class LaporanJasaSandar extends BaseController
@@ -94,6 +95,19 @@ class LaporanJasaSandar extends BaseController
         ];
         return view('Admin/cetakJasaSandar', $data);
     }
+
+    public function getGRT($kapalId)
+    {
+        // Contoh pengambilan data GRT berdasarkan kapalId
+        $kapal = $this->Model_kapal->getKapalById($kapalId);
+        
+        if ($kapal) {
+            echo json_encode(['grt' => $kapal->grt]);
+        } else {
+            echo json_encode(['grt' => null]);
+        }
+    }
+
 
     public function data_kapal()
     {
