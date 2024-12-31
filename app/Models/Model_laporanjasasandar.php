@@ -13,7 +13,7 @@ class Model_laporanjasasandar extends Model
     {
     	$db      = \Config\Database::connect();
         $builder = $db->table('form_data');
-		$builder->select('no_id, namakp, tanggal, jam_tambat, jam_tolak, lama_tambat');
+		$builder->select('no_id, namakp, tanggal, jam_tambat, jam_tolak, lama_tambat, biaya');
 		$builder->join('kapal','kapal.id = form_data.id_kapal');
         if ($param['tanggal1']) $builder->where('tanggal >= ', $param['tanggal1']);
         if ($param['tanggal2']) $builder->where('tanggal <= ', $param['tanggal2']);

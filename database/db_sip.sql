@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2024 at 11:30 AM
+-- Generation Time: Dec 31, 2024 at 02:29 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -34,16 +34,20 @@ CREATE TABLE `form_data` (
   `jam_tambat` time NOT NULL,
   `jam_tolak` time NOT NULL,
   `lama_tambat` int(11) NOT NULL,
-  `keterangan` varchar(100) NOT NULL
+  `keterangan` varchar(100) NOT NULL,
+  `biaya` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `form_data`
 --
 
-INSERT INTO `form_data` (`no_id`, `id_kapal`, `tanggal`, `jam_tambat`, `jam_tolak`, `lama_tambat`, `keterangan`) VALUES
-(1, 3, '2024-12-30', '11:25:00', '11:25:00', 35, 'Jasa Sandar Oke                                '),
-(2, 1, '2024-12-06', '11:26:00', '11:26:00', 20, 'Jasa Sandar');
+INSERT INTO `form_data` (`no_id`, `id_kapal`, `tanggal`, `jam_tambat`, `jam_tolak`, `lama_tambat`, `keterangan`, `biaya`) VALUES
+(1, 3, '2024-12-30', '11:25:00', '11:25:00', 35, 'Jasa Sandar Oke                                ', 0),
+(2, 1, '2024-12-06', '11:26:00', '11:26:00', 20, 'Jasa Sandar', 0),
+(3, 3, '2024-12-31', '18:08:00', '18:13:00', 5, 'Jasa Sandar', 0),
+(4, 1, '2024-12-31', '22:21:00', '22:26:00', 40, 'Sandar                                ', 21600),
+(5, 2, '2025-01-07', '09:00:00', '09:00:00', 1, 'Sandar', 547);
 
 -- --------------------------------------------------------
 
@@ -54,36 +58,37 @@ INSERT INTO `form_data` (`no_id`, `id_kapal`, `tanggal`, `jam_tambat`, `jam_tola
 CREATE TABLE `kapal` (
   `id` int(11) NOT NULL,
   `namaprs` varchar(100) NOT NULL,
-  `namakp` varchar(100) NOT NULL
+  `namakp` varchar(100) NOT NULL,
+  `grt` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kapal`
 --
 
-INSERT INTO `kapal` (`id`, `namaprs`, `namakp`) VALUES
-(1, 'PT ASDP Indonesia Ferry', 'KMP Dingkis'),
-(2, 'PT ASDP Indonesia Ferry', 'KMP Goropa'),
-(3, 'PT ASDP Indonesia Ferry', 'KMP Poncan Moale'),
-(4, 'PT ASDP Indonesia Ferry', 'KMP Gajah Mada'),
-(5, 'PT ASDP Indonesia Ferry', 'KMP Julung-Julung'),
-(6, 'PT ASDP Indonesia Ferry', 'KMP Manta'),
-(7, 'PT ASDP Indonesia Ferry', 'KMP Manta II'),
-(8, 'PT Pascadana Sundari', 'KMP Tawes'),
-(9, 'PT Dharma Lautan Utama', 'KMP Dharma Ferry'),
-(10, 'PT Dharma Lautan Utama', 'KMP Dharma Badra'),
-(11, 'PT Dharma Lautan Utama', 'KMP Ulin Ferry'),
-(12, 'PT Sadena Mitra Bahari', 'KMP Tiga Anugerah'),
-(13, 'PT Sadena Mitra Bahari', 'KMP Agung Wilis'),
-(14, 'PT Sadena Mitra Bahari', 'KMP Kineret'),
-(15, 'PT Sadena Mitra Bahari', 'KMP Muchlisa'),
-(16, 'PT Jembatan Nusantara', 'KMP Swarna Nalini'),
-(17, 'PT Jembatan Nusantara', 'KMP Selat Madura I'),
-(18, 'PT Jembatan Nusantara', 'KMP Selat Madura II'),
-(19, 'PT Jembatan Nusantara', 'KMP Srikandi'),
-(20, 'PT Tranship Indonesia', 'KMP Tranship I'),
-(21, 'PT Mitra Bahari', 'KMP Manggani'),
-(22, 'PT Afif Jaya Group', 'KMP Jaya Sentosa');
+INSERT INTO `kapal` (`id`, `namaprs`, `namakp`, `grt`) VALUES
+(1, 'PT ASDP Indonesia Ferry', 'KMP Dingkis', 540),
+(2, 'PT ASDP Indonesia Ferry', 'KMP Goropa', 547),
+(3, 'PT ASDP Indonesia Ferry', 'KMP Poncan Moale', 831),
+(4, 'PT ASDP Indonesia Ferry', 'KMP Gajah Mada', 512),
+(5, 'PT ASDP Indonesia Ferry', 'KMP Julung-Julung', 601),
+(6, 'PT ASDP Indonesia Ferry', 'KMP Manta', 627),
+(7, 'PT ASDP Indonesia Ferry', 'KMP Manta II', 611),
+(8, 'PT Pascadana Sundari', 'KMP Tawes', 270),
+(9, 'PT Dharma Lautan Utama', 'KMP Dharma Ferry', 342),
+(10, 'PT Dharma Lautan Utama', 'KMP Dharma Badra', 239),
+(11, 'PT Dharma Lautan Utama', 'KMP Ulin Ferry', 244),
+(12, 'PT Sadena Mitra Bahari', 'KMP Tiga Anugerah', 321),
+(13, 'PT Sadena Mitra Bahari', 'KMP Agung Wilis', 447),
+(14, 'PT Sadena Mitra Bahari', 'KMP Kineret', 531),
+(15, 'PT Sadena Mitra Bahari', 'KMP Muchlisa', 0),
+(16, 'PT Jembatan Nusantara', 'KMP Swarna Nalini', 323),
+(17, 'PT Jembatan Nusantara', 'KMP Selat Madura I', 209),
+(18, 'PT Jembatan Nusantara', 'KMP Selat Madura II', 209),
+(19, 'PT Jembatan Nusantara', 'KMP Srikandi', 476),
+(20, 'PT Tranship Indonesia', 'KMP Tranship I', 1058),
+(21, 'PT Mitra Bahari', 'KMP Manggani', 831),
+(22, 'PT Afif Jaya Group', 'KMP Jaya Sentosa', 441);
 
 -- --------------------------------------------------------
 
@@ -138,7 +143,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `form_data`
 --
 ALTER TABLE `form_data`
-  MODIFY `no_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `no_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kapal`

@@ -67,8 +67,8 @@
                                                 <td><?= $item['namakp']; ?></td>
                                                 <td><?= $item['jam_tambat']; ?></td>
                                                 <td><?= $item['jam_tolak']; ?></td>
-                                                <td><?= $item['lama_tambat']; ?></td>
-                                                <td><?= $item['biaya']; ?></td>
+                                                <td><?= $item['lama_tambat'] . ' Menit'; ?></td>
+                                                <td><?= 'Rp. '. number_format($item['biaya'], 0, ',', '.'); ?></td>
                                                 <td><?= $item['keterangan']; ?></td>
                                                 <td>
                                                         <center>
@@ -290,16 +290,16 @@
             $.getJSON('<?php echo base_url('Admin/JasaSandar/cek_grt'); ?>' + '/' + status, {},
                 function(json) {
                     $('#input_grt').val(json.grt);
+                    hitung_($('#input_lama').val());
                 });
-                hitung_($('#input_lama').val());
         };
             
         function cekgrt_edit(status) {
             $.getJSON('<?php echo base_url('Admin/JasaSandar/cek_grt'); ?>' + '/' + status, {},
                 function(json) {
                     $('#edit_grt').val(json.grt);
+                    hitung_edit($('#edit_lama').val());
                 });
-            hitung_edit($('#edit_lama').val());
         };
             
         function hitung(nilai) {

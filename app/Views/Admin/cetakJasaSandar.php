@@ -35,20 +35,28 @@
                 <th style="text-align: center;">Jam Tambat</th>
                 <th style="text-align: center;">Jam Tolak</th>
                 <th style="text-align: center;">Lama Tambat</th>
+                <th style="text-align: center;">Biaya</th>
             </tr>
         	<?php
             $no = 1;
+			$total = 0;
             foreach ($laporan as $item) {
-            ?>
+				$total = $total + $item['biaya'];
+           ?>
             <tr>
                 <td width="1%" style="text-align: center;"><?= $no++; ?></td>
                 <td style="text-align: left;"><?= $item['namakp']; ?></td>
                 <td style="text-align: center;"><?= $item['tanggal']; ?></td>
                 <td style="text-align: center;"><?= $item['jam_tambat']; ?></td>
                 <td style="text-align: center;"><?= $item['jam_tolak']; ?></td>
-                <td style="text-align: center;"><?= $item['lama_tambat']; ?></td>
+                <td style="text-align: center;"><?= $item['lama_tambat'] . ' Menit'; ?></td>
+                <td style="text-align: center;"><?= 'Rp. '. number_format($item['biaya'], 0, ',', '.'); ?></td>
             </tr>
             <?php } ?>
+            <tr>
+                <td style="text-align: center;" colspan="6"><b>Total Biaya</b></td>
+                <td style="text-align: center;"><b><?= 'Rp. '. number_format($total, 0, ',', '.'); ?></b></td>
+            </tr>
 		</table>
 	</center>
 </body>

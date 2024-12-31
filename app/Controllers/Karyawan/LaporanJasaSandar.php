@@ -61,6 +61,7 @@ class LaporanJasaSandar extends BaseController
                 $isi['jam_tambat'] = $value['jam_tambat'];
                 $isi['jam_tolak'] = $value['jam_tolak'];
                 $isi['lama_tambat'] = $value['lama_tambat'];
+                $isi['biaya'] = $value['biaya'];
                 array_push($data, $isi);
             }
         }
