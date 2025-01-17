@@ -30,7 +30,7 @@ class LaporanJasaSandar extends BaseController
         $data = [
             'judul' => 'Tabel Jasa Sandar'
         ];
-        return view('Admin/viewLaporanJasaSandar', $data);
+        return view('Karyawan/viewLaporanJasaSandar', $data);
     }
 
     public function data($tanggal = null, $kapal = null)

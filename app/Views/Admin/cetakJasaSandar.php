@@ -1,42 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-	<title>Cetak Laporan</title>
-    <link rel="shortcut icon" href="<?= base_url() ?>/docs/themeforest/base/assets/images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Jasa Sandar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #000;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            max-height: 80px;
+            margin-right: 20px;
+        }
+        .signature {
+            margin-top: 20px;
+        }
+        .signature div {
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-	<center>
-		<table width="100%">
-			<tr>
-				<td><center><img src="<?= base_url() ?>/docs/img/logo.webp" width="110" height="70"></center></td>
+	<table border="1">
+		<tr>
+			<center>
 				<td>
-					<center>
-					<font size="4"><b>PT ASDP INDONESIA FERRY (Persero) </b></font><br>
-					<font size="2">Penajam Kab. Penajam Paser Utara, Kalimantan Timur</font><br>
-					<font size="2">Email : klinikmaryam@gmail.com</font><br>
-					<font size="2">Kota Balikpapan (63372)</font>
-</center>
+					<div class="header">
+						<img src="<?= base_url() ?>/docs/img/logo.webp" alt="Logo">
+						<h2>Data Jasa Sandar Pelabuhan Penajam</h2>
+					</div>
 				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><b><hr></b></td>
-			</tr>
-		</table>
-		<center>
-			<h3>
-				<?= $judul; ?>
-			</h3>
-		</center>
-		<table border="1">
+			</center>
+		</tr>
+	</table>
+    
+    <h3>Data Jasa Sandar</h3>
+    <table>
+        <thead>
             <tr>
-                <th style="text-align: center;">No</th>
-                <th style="text-align: center;">Nama Kapal</th>
-                <th style="text-align: center;">Tanggal</th>
-                <th style="text-align: center;">Jam Tambat</th>
-                <th style="text-align: center;">Jam Tolak</th>
-                <th style="text-align: center;">Lama Tambat</th>
-                <th style="text-align: center;">Biaya</th>
+                <th>No</th>
+                <th>Nama Kapal</th>
+                <th>Tanggal</th>
+                <th>Jam Tambat</th>
+                <th>Jam Tolak</th>
+                <th>Lama Tambat</th>
+                <th>Biaya</th>
             </tr>
+        </thead>
+        <tbody>
         	<?php
             $no = 1;
 			$total = 0;
@@ -44,23 +78,39 @@
 				$total = $total + $item['biaya'];
            ?>
             <tr>
-                <td width="1%" style="text-align: center;"><?= $no++; ?></td>
-                <td style="text-align: left;"><?= $item['namakp']; ?></td>
-                <td style="text-align: center;"><?= $item['tanggal']; ?></td>
-                <td style="text-align: center;"><?= $item['jam_tambat']; ?></td>
-                <td style="text-align: center;"><?= $item['jam_tolak']; ?></td>
-                <td style="text-align: center;"><?= $item['lama_tambat'] . ' Menit'; ?></td>
-                <td style="text-align: center;"><?= 'Rp. '. number_format($item['biaya'], 0, ',', '.'); ?></td>
+                <td width="1%"><?= $no++; ?></td>
+                <td><?= $item['namakp']; ?></td>
+                <td><?= $item['tanggal']; ?></td>
+                <td><?= $item['jam_tambat']; ?></td>
+                <td><?= $item['jam_tolak']; ?></td>
+                <td><?= $item['lama_tambat'] . ' Menit'; ?></td>
+                <td><?= 'Rp. '. number_format($item['biaya'], 0, ',', '.'); ?></td>
             </tr>
-            <?php } ?>
+			<?php } ?>
+        </tbody>
+        <tfoot>
             <tr>
-                <td style="text-align: center;" colspan="6"><b>Total Biaya</b></td>
-                <td style="text-align: center;"><b><?= 'Rp. '. number_format($total, 0, ',', '.'); ?></b></td>
+                <td colspan="6"><strong>Sub Total</strong></td>
+                <td><?= 'Rp. '. number_format($total, 0, ',', '.'); ?></td>
             </tr>
-		</table>
-	</center>
+        </tfoot>
+    </table>
+    
+    <div class="signature">
+        <div>
+            <p>Petugas Tambah</p>
+            <br></br>
+            <br></br>
+            <p>.........................................</p>
+        </div>
+        <div>
+        </div>
+        <div>
+            <p>Supervisor</p>
+            <br></br>
+            <br></br>
+            <p>.........................................</p>
+        </div>
+    </div>
 </body>
-	<script>
-		window.print();
-	</script>
 </html>

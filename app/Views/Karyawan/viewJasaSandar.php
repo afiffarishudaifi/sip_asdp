@@ -303,12 +303,20 @@
         };
             
         function hitung(nilai) {
-            $hasil = nilai * $('#input_grt').val();
+            if (nilai > 15) {
+                $hasil = Math.ceil((nilai / 15)) * $('#input_grt').val();
+            } else {
+                $hasil = 1 * $('#input_grt').val();
+            }
             $('#input_biaya').val($hasil);
         };
             
         function hitung_edit(nilai) {
-            $hasil = nilai * $('#edit_grt').val();
+            if (nilai > 15) {
+                $hasil = Math.ceil((nilai / 15)) * $('#edit_grt').val();
+            } else {
+                $hasil = 1 * $('#edit_grt').val();
+            }
             $('#edit_biaya').val($hasil);
         };
 
